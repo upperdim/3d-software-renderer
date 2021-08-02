@@ -3,10 +3,6 @@
 create_swap_func(int)
 create_max_func(double)
 
-// Reads a line from file pointer. Returns the line and its length via pass by reference.
-// Returns  0 if it successfully read a line.
-// Returns -1 if it could not (EOF).
-// Returns -2 if it could not ('\n').
 int get_line(char **lineptr, size_t *len, FILE *objFile)
 {
 	int returnVal = 0; // success initially
