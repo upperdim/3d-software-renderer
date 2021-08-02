@@ -3,7 +3,7 @@
 #include "matrix.h"
 #include "util.h"
 
-vector3d matrix_multiply_vector(matrix4x4 *m, vector3d *i)
+vector3d matrix_mult_vector(matrix4x4 *m, vector3d *i)
 {
 	return (vector3d) {
 		i->x * m->m[0][0] + i->y * m->m[1][0] + i->z * m->m[2][0] + i->w * m->m[3][0],

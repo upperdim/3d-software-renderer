@@ -123,9 +123,9 @@ int main(int argc, char *argv[])
 			triangle triProjected   = triangle_new();
 			triangle triTransformed = triangle_new();
 
-			triTransformed.p[0] = matrix_multiply_vector(&matWorld, &mesh.tris[i].p[0]);
-			triTransformed.p[1] = matrix_multiply_vector(&matWorld, &mesh.tris[i].p[1]);
-			triTransformed.p[2] = matrix_multiply_vector(&matWorld, &mesh.tris[i].p[2]);
+			triTransformed.p[0] = matrix_mult_vector(&matWorld, &mesh.tris[i].p[0]);
+			triTransformed.p[1] = matrix_mult_vector(&matWorld, &mesh.tris[i].p[1]);
+			triTransformed.p[2] = matrix_mult_vector(&matWorld, &mesh.tris[i].p[2]);
 
 			// Calculate triangle normal
 			vector3d normal = {0.0, 0.0, 0.0, VECTOR_DEFAULT_W};
@@ -148,9 +148,9 @@ int main(int argc, char *argv[])
 				uint8_t pixVal = (int) (255 * dp);
 				triProjected.color = (color) {pixVal, pixVal, pixVal, 255};
 
-				triProjected.p[0] = matrix_multiply_vector(&matProj, &triTransformed.p[0]);
-				triProjected.p[1] = matrix_multiply_vector(&matProj, &triTransformed.p[1]);
-				triProjected.p[2] = matrix_multiply_vector(&matProj, &triTransformed.p[2]);
+				triProjected.p[0] = matrix_mult_vector(&matProj, &triTransformed.p[0]);
+				triProjected.p[1] = matrix_mult_vector(&matProj, &triTransformed.p[1]);
+				triProjected.p[2] = matrix_mult_vector(&matProj, &triTransformed.p[2]);
 
 				triProjected.p[0] = vector_div(&triProjected.p[0], triProjected.p[0].w);
 				triProjected.p[1] = vector_div(&triProjected.p[1], triProjected.p[1].w);

@@ -8,7 +8,7 @@ typedef struct {
 } matrix4x4;
 
 
-vector3d  matrix_multiply_vector(matrix4x4 *m, vector3d *i);
+vector3d  matrix_mult_vector(matrix4x4 *m, vector3d *i);
 matrix4x4 matrix_identity();
 matrix4x4 matrix_rotation_x(double angleRadian);
 matrix4x4 matrix_rotation_y(float angleRadian);
