@@ -4,7 +4,7 @@
 #include "graphics.h"
 #include "debug.h"
 
-bool limitFrameRate = false;
+bool  limitFrameRate = false;
 color backgroundColor = {0, 0, 0, 255};
 
 

@@ -40,7 +40,7 @@ typedef struct {
 } mesh;
 
 
-bool limitFrameRate;
+bool  limitFrameRate;
 color backgroundColor;
 
 
