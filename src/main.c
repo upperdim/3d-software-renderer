@@ -149,7 +149,7 @@ int main(int argc, char *argv[])
 				vector3d offsetView = {1.0, 1.0, 0.0, VECTOR_DEFAULT_W};
 				triangle_add_vector(&triProjected, &offsetView);
 
-				triangle_mult_xy(&triProjected, 0.5 * (double) screen.width, 0.5 * (double) screen.height);
+				triangle_mult_xy(&triProjected, ((double) screen.width * 0.5), ((double) screen.height * 0.5));
 
 				// Add this triangle to "triangles to raster"
 				++triToRasterCount;
