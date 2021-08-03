@@ -157,18 +157,9 @@ int main(int argc, char *argv[])
 				triProjected.p[2] = vector_div(&triProjected.p[2], triProjected.p[2].w);
 
 				vector3d offsetView = {1.0, 1.0, 0.0, VECTOR_DEFAULT_W};
-				triProjected.p[0] = vector_add(&triProjected.p[0], &offsetView);
-				triProjected.p[1] = vector_add(&triProjected.p[1], &offsetView);
-				triProjected.p[2] = vector_add(&triProjected.p[2], &offsetView);
+				triangle_add_vector(&triProjected, &offsetView);
 
-				triProjected.p[0].x *= 0.5 * (double) screen.width;
-				triProjected.p[0].y *= 0.5 * (double) screen.height;
-				
-				triProjected.p[1].x *= 0.5 * (double) screen.width;
-				triProjected.p[1].y *= 0.5 * (double) screen.height;
-				
-				triProjected.p[2].x *= 0.5 * (double) screen.width;
-				triProjected.p[2].y *= 0.5 * (double) screen.height;
+				triangle_mult_xy(&triProjected, 0.5 * (double) screen.width, 0.5 * (double) screen.height);
 
 				// Add this triangle to "triangles to raster"
 				++triToRasterCount;

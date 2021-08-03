@@ -327,3 +327,17 @@ void cap_framerate(double deltaTime)
 		SDL_Delay(FRAME_LIMIT_MS - deltaTime);
 	}
 }
+
+void triangle_mult_xy(triangle *tri, double mult_x_by, double mult_y_by)
+{
+	for (int i = 0; i < 3; ++i) {
+		tri->p[i].x *= mult_x_by;
+		tri->p[i].y *= mult_y_by;
+	}
+}
+
+void triangle_add_vector(triangle *tri, vector3d *v)
+{
+	for (int i = 0; i < 3; ++i)
+		tri->p[i] = vector_add(&tri->p[i], v);
+}
