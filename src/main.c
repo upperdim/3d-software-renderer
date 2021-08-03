@@ -193,9 +193,7 @@ int main(int argc, char *argv[])
 		}
 
 		SDL_UpdateWindowSurface(window);
-		if (limitFrameRate && dt < FRAME_LIMIT_MS) {
-			SDL_Delay(FRAME_LIMIT_MS - dt);
-		}
+		cap_framerate(dt);
 
 		if (debugMode) {
 			printf("Rendering %d triangles - dt: %lf - FPS: %d\n", triToRasterCount, dt, (int) (1000 / dt));

@@ -55,6 +55,7 @@ void draw_rect(screen *, int xstart, int ystart, int xend, int yend, color);
 void screen_fill(screen *, color);
 void screen_clear(screen *);
 triangle triangle_new();
+void cap_framerate(double deltaTime);
 
 
 #endif

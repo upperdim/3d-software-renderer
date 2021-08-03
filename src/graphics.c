@@ -320,3 +320,10 @@ triangle triangle_new()
 		{255, 255, 255, 255}
 	};
 }
+
+void cap_framerate(double deltaTime)
+{
+	if (limitFrameRate && deltaTime < FRAME_LIMIT_MS) {
+		SDL_Delay(FRAME_LIMIT_MS - deltaTime);
+	}
+}
