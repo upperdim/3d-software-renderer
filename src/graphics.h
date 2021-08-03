@@ -56,6 +56,7 @@ void screen_fill(screen *, color);
 void screen_clear(screen *);
 triangle triangle_new();
 void cap_framerate(double deltaTime);
+vector3d triangle_get_normal(triangle *);
 
 // Multiplies x and y values of all points in a triangle by mult_x_by and mult_y_by respectively.
 void triangle_mult_xy(triangle *tri, double mult_x_by, double mult_y_by);

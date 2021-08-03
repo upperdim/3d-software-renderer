@@ -341,3 +341,17 @@ void triangle_add_vector(triangle *tri, vector3d *v)
 	for (int i = 0; i < 3; ++i)
 		tri->p[i] = vector_add(&tri->p[i], v);
 }
+
+vector3d triangle_get_normal(triangle *t)
+{
+	vector3d normal, side1, side2;
+	normal = side1 = side2 = (vector3d) {0.0, 0.0, 0.0, VECTOR_DEFAULT_W};
+
+	side1 = vector_sub(&t->p[1], &t->p[0]);
+	side2 = vector_sub(&t->p[2], &t->p[0]);
+
+	normal = vector_cross_prod(&side1, &side2);
+	normal = vector_normalise(&normal);
+
+	return normal;
+}

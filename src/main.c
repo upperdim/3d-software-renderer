@@ -127,16 +127,7 @@ int main(int argc, char *argv[])
 			triTransformed.p[1] = matrix_mult_vector(&matWorld, &mesh.tris[i].p[1]);
 			triTransformed.p[2] = matrix_mult_vector(&matWorld, &mesh.tris[i].p[2]);
 
-			// Calculate triangle normal
-			vector3d normal, side1, side2;
-			normal = side1 = side2 = (vector3d) {0.0, 0.0, 0.0, VECTOR_DEFAULT_W};
-
-			side1 = vector_sub(&triTransformed.p[1], &triTransformed.p[0]);
-			side2 = vector_sub(&triTransformed.p[2], &triTransformed.p[0]);
-
-			normal = vector_cross_prod(&side1, &side2);
-			normal = vector_normalise(&normal);
-
+			vector3d normal = triangle_get_normal(&triTransformed);
 			vector3d cameraRay = vector_sub(&triTransformed.p[0], &camera);
 			
 			if (vector_dot_prod(&normal, &cameraRay) < 0.0) {
